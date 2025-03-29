@@ -28,12 +28,18 @@ def index():
 
 @app.route('/tasks', methods=['GET'])
 def get_todos():
-    todos = Todo.query.all()
-    return jsonify([{
-        'id': todo.id,
-        'title': todo.title,
-        'complete': todo.complete
-    } for todo in todos])
+    try:
+        todos = Todo.query.order_by(Todo.complete.asc()).all()
+        return jsonify([{
+            'id': todo.id,
+            'title': todo.title,
+            'complete': todo.complete
+        } for todo in todos])
+    except Exception as e:
+        return jsonify({
+            'error': 'Internal Server Error',
+            'message': f'Failed to fetch tasks: {str(e)}'
+        }), 500
 
 @app.route('/tasks/<int:id>', methods=['GET'])
 def get_todo(id):
