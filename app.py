@@ -59,5 +59,25 @@ def update_todo(id):
         'complete': todo.complete
     })
 
+@app.route('/tasks', methods=['POST'])
+def create_todo():
+    data = request.get_json()
+    print(data)
+    if not data or 'title' not in data:
+        return jsonify({'error': 'Task title is required'}), 400
+
+    todo = Todo(
+        title=data['title'].strip(),
+        complete=False
+    )
+    db.session.add(todo)
+    db.session.commit()
+
+    return jsonify({
+        'id': todo.id,
+        'title': todo.title,
+        'complete': todo.complete
+    }), 201
+
 if __name__ == "__main__":
     app.run(debug=True)
