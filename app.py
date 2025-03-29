@@ -65,6 +65,18 @@ def update_todo(id):
     todo = Todo.query.get_or_404(id)
     data = request.get_json()
     
+    if not data or 'complete' not in data:
+        return jsonify({
+            'error': 'Bad Request',
+            'message': 'Complete status is required'
+        }), 400
+    
+    if type(data['complete']) != bool:
+        return jsonify({
+           'error': 'Bad Request',
+           'message': 'Complete status must be a boolean'
+    }), 400
+    
     todo.complete = data.get('complete', todo.complete)
 
     db.session.commit()
@@ -77,14 +89,24 @@ def update_todo(id):
 @app.route('/tasks', methods=['POST'])
 def create_todo():
     data = request.get_json()
-    print(data)
+    
     if not data or 'title' not in data:
-        return jsonify({'error': 'Task title is required'}), 400
-
+        return jsonify({
+            'error': 'Bad Request',
+            'message': 'Task title is required'
+        }), 400
+    
+    if len(data['title'].strip()) == 0:
+        return jsonify({
+            'error': 'Bad Request',
+            'message': 'Task title cannot be an empty string'
+        }), 400
+    
     todo = Todo(
         title=data['title'].strip(),
         complete=False
     )
+    
     db.session.add(todo)
     db.session.commit()
 
