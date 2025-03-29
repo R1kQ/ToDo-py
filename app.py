@@ -43,12 +43,18 @@ def get_todos():
 
 @app.route('/tasks/<int:id>', methods=['GET'])
 def get_todo(id):
-    todo = Todo.query.get_or_404(id)
-    return jsonify([{
-        'id': todo.id,
-        'title': todo.title,
-        'complete': todo.complete
-    }])
+    try:
+        todo = Todo.query.get_or_404(id)
+        return jsonify([{
+            'id': todo.id,
+            'title': todo.title,
+            'complete': todo.complete
+        }])
+    except Exception as e:
+        return jsonify({
+            'error': 'Not found',
+            'message': f'Task with ID {id} not found'
+        }), 404
 
 @app.route('/tasks/<int:id>', methods=['PUT'])
 def update_todo(id):
