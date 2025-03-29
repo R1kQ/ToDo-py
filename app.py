@@ -16,8 +16,8 @@ class Todo(db.Model):
     title = db.Column(db.String(200), nullable=False)
     complete = db.Column(db.Boolean, default=False) 
 
-# with app.app_context():
-#     db.create_all()
+with app.app_context():
+    db.create_all()
 #     new_todo = Todo(title="Test Item 1", complete=False)
 #     db.session.add(new_todo)
 #     db.session.commit()
