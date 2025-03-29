@@ -16,11 +16,11 @@ class Todo(db.Model):
     title = db.Column(db.String(200), nullable=False)
     complete = db.Column(db.Boolean, default=False) 
 
-with app.app_context():
-    db.create_all()
-    new_todo = Todo(title="Test Item 1", complete=False)
-    db.session.add(new_todo)
-    db.session.commit()
+# with app.app_context():
+#     db.create_all()
+#     new_todo = Todo(title="Test Item 1", complete=False)
+#     db.session.add(new_todo)
+#     db.session.commit()
 
 @app.route('/')
 def index():
@@ -49,7 +49,6 @@ def update_todo(id):
     todo = Todo.query.get_or_404(id)
     data = request.get_json()
     
-    # todo.title = data.get('title', todo.title)
     todo.complete = data.get('complete', todo.complete)
 
     db.session.commit()
