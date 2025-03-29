@@ -26,6 +26,10 @@ class Todo(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/create-task')
+def todo_form():
+    return render_template('form.html')
+
 @app.route('/tasks', methods=['GET'])
 def get_todos():
     try:
