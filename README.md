@@ -18,11 +18,11 @@ The application provides a RESTful API  for managing tasks (create, read, and up
 <br>
 3. Install dependencies located in requirements.txt
 
-    python3 -m pip install requirements.txt
+    python3 -m pip install -r requirements.txt
     
     or
 
-    python -m pip install requirements.txt
+    python -m pip install -r requirements.txt
 
 
 <br>
