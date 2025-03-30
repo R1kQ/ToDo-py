@@ -8,17 +8,17 @@ async function loadTodos(params) {
 
     todos.forEach(todo => {
         const div = document.createElement("div");
-        div.className = "todo-item col-xs-12 col-sm-6 col-md-4 col-lg-4 p-3";
+        div.className = "todo-item col-xs-12 col-sm-6 col-md-4 col-lg-4 p-3 bg-light shadow border";
 
         if (todo.complete !== true) {
             div.innerHTML = `
-                        <p>${todo.title}</p>
-                        <button class="btn btn-success not-completed" onclick="updateTodo(${todo.id}, ${true})">Complete</button>
+                        <p class="h4 mb-3">${todo.title}</p>
+                        <button class="btn btn-success not-completed w-25 shadow-sm" onclick="updateTodo(${todo.id}, ${true})">Complete</button>
                         `;
         } else {
             div.innerHTML = `
-                        <p>${todo.title}</p>
-                        <button class="btn btn-secondary completed">Completed</button>
+                        <p class="h4 mb-3">${todo.title}</p>
+                        <button class="btn btn-secondary w-25 shadow-sm completed">Completed</button>
                         `;
         }
 

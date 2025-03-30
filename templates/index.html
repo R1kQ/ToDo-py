@@ -10,25 +10,20 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
 
-    <style>
-        .todo-item {
-            border: 2px solid grey;
-            border-radius: 10px;
-        }
-    </style>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
 
     <title>To-Doable</title>
 </head>
 
 <body class="text-center">
-    <h1>✏️ To-Doable 🗒️</h1>
+    <h1 class="m-3">✏️ To-Doable 🗒️</h1>
 
     <div class="m-3">
         <a class="btn btn-primary" href="http://localhost:5000/create-task">Create New Task</a>
     </div>
 
-    <div class="container-fluid text-center">
-        <div id="div-todos" class="row p-3 g-3 div-todos text-center">
+    <div class="container-fluid text-center p-4">
+        <div id="div-todos" class="row g-3 div-todos">
         </div>
     </div>
 
