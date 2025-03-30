@@ -5,11 +5,25 @@ The application provides a RESTful API  for managing tasks (create, read, and up
 
 
 # Steps to start up app
+<br>
+1. Make sure you have Python installed on your system
 
-cd ToDo-py 
+    https://www.python.org/downloads/
+   
+<br>
+2. Install dependencies located in requirements.txt
 
-. .venv/bin/activate
+    python3 -m pip install requirements.txt
+    
+    or
 
-pip install -r requirements.txt
+    python -m pip install requirements.txt
 
-python app.py 
+<br>
+3. Run the app
+
+   `python3 app.py`
+
+   or
+
+   `python app.py`
