@@ -11,7 +11,12 @@ The application provides a RESTful API  for managing tasks (create, read, and up
     https://www.python.org/downloads/
    
 <br>
-2. Install dependencies located in requirements.txt
+2. Clone repository
+
+    https://github.com/R1kQ/ToDo-py.git
+
+<br>
+3. Install dependencies located in requirements.txt
 
     python3 -m pip install requirements.txt
     
@@ -19,11 +24,13 @@ The application provides a RESTful API  for managing tasks (create, read, and up
 
     python -m pip install requirements.txt
 
+
 <br>
-3. Run the app
+4. Run the app from IDE terminal
 
-   `python3 app.py`
+    python3 app.py
+    
+    or
 
-   or
-
-   `python app.py`
+    python app.py`
+   
