@@ -35,7 +35,7 @@ The application provides a RESTful API  for managing tasks (create, read, and up
     python app.py`
 
 
-# Curl Examples
+# Curl Command Examples
 
 `curl http://localhost:5000/tasks`
 
@@ -61,8 +61,9 @@ The application provides a RESTful API  for managing tasks (create, read, and up
 
 
 
-# Error curl command
+# Error Curl Command Examples
 `curl --noproxy -x POST http://localhost:5000/tasks -H "Content-Type: application/json" -d '{"title": ""}'`
+<br>
 <img width="378" alt="image" src="https://github.com/user-attachments/assets/31036ea0-5e09-447f-900f-af1d08225bae" />
 
 `curl -X PUT http://localhost:5000/tasks/4 -H "Content-Type: application/json" -d '{"complete": ""}'`
